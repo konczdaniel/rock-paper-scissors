@@ -1,8 +1,14 @@
 function pickComputerMove() {
     const randNumber = Math.random();
-    if (randNumber <= 0.33) return 'Rock';
-    if (randNumber <= 0.66) return 'Paper';
-    return 'Scissors';
+    if (randNumber <= 0.33) {
+        return 'Rock';
+    }
+    if (randNumber <= 0.66) {
+        return 'Paper';
+    }
+    else{
+        return 'Scissors';
+    }
 }
 
 let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, ties: 0 };
@@ -72,3 +78,20 @@ function playGame(playerMove) {
     document.querySelector('.js-score').innerHTML =
         `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
     }
+    
+        
+        
+    const button = document.querySelector('.button-size');
+    const moveContainer = document.querySelector('.move-container');
+
+    button.addEventListener('click', () => {
+    moveContainer.style.opacity = '1';
+    });
+
+    const autoPlayButton = document.querySelector('.auto-play-button');
+     
+
+  autoPlayButton.addEventListener('click', () => {
+    moveContainer.style.opacity = '1';
+  });
+
